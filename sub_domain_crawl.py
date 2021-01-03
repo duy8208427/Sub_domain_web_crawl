@@ -4,6 +4,7 @@ sub_domain = []
 not_important = []
 
 url = input('Paste the website here: ')
+print('Waiting...')
 special_word = url.split('=')[1]
 
 def crawling_website():
@@ -56,7 +57,8 @@ def remove_all_BR():
     #Open and write to a file
     file = open("sub_domain.txt","w")
     for word in sub_domain:
-        file.write(word + '\n')
+        if '<BR>' not in word:
+            file.write(word + '\n')
     file.close()
     
 crawling_website()
